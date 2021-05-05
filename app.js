@@ -9,7 +9,32 @@ function editdetails(){
         }
     })
 }
+function inactivateUser(username){
+    if(confirm("Are you sure?")){
+    $.ajax({
+        url : "inactivate.php",
+        type : "post",
+        data: {Username: username},
+        success : function(data, status){
+            display();
+        }
+    })
+}
 
+}
+function activateUser(username){
+    if(confirm("Are you sure")){
+    $.ajax({
+        url : "activate.php",
+        type : "post",
+        data: {Username: username},
+        success : function(data, status){
+            display();
+        }
+    })
+}
+
+}
 function updateUser(){
     console.log('hello');
     var firstname = $('#ufname').val();
@@ -110,3 +135,4 @@ function display(){
     })
 
 }
+

@@ -1,6 +1,6 @@
 <?php
 include_once ('config.php');
-
+session_start();
 if(isset($_POST['Submit']))
 {	 
 	 $user_name = $_POST['Username'];
@@ -14,7 +14,8 @@ echo $user_name;
 echo $password;
 if($count == 1){  
     echo "<h1><center> Login successful </center></h1>"; 
-    header("Location: dashboard1.html");
+    header("Location: dashboard1.php");
+    $_SESSION['username'] = $user_name;
     exit; 
 }  
 else{  

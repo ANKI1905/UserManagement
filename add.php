@@ -12,9 +12,11 @@ if (isset($_POST['Firstname']) && isset($_POST['Lastname']) && isset($_POST['Ema
 	 echo $contact;
 	 echo  $email;
 
+     $bytes = openssl_random_pseudo_bytes(2);
 
+     $pwd = bin2hex($bytes);
 	 $sql = "INSERT INTO user_info (First_name,Last_name, Email, Contact, Username, Password, Active)
-	 VALUES ('$first_name','$last_name','$email', '$contact', '$email', 'password', TRUE )";
+	 VALUES ('$first_name','$last_name','$email', '$contact', '$email', '$pwd', TRUE )";
 
 
    
@@ -28,5 +30,4 @@ if (isset($_POST['Firstname']) && isset($_POST['Lastname']) && isset($_POST['Ema
 	 }
 	 mysqli_close($mysqli);
 }
-
 ?>
